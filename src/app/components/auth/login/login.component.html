@@ -1,0 +1,104 @@
+<!-- MAIN PAGE -->
+<div class="h-[calc(100vh-116px)] overflow-hidden bg-[#f4f7f2]">
+    <!-- LOGIN SECTION -->
+    <section class="max-w-7xl mx-auto px-6 py-4 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-[calc(100vh-72px)]">
+        <!-- LEFT CONTENT -->
+        <div class="space-y-6">
+            <!-- Main Content -->
+            <div>
+                <p class="uppercase tracking-[4px] text-green-700 text-sm font-semibold mb-3">
+                    Healthcare & Essentials For Rural Communities
+                </p>
+
+                <h1 class="text-2xl md:text-3xl font-bold leading-tight text-gray-800">
+                    Delivering
+                    <span class="text-green-600">
+                        Medicines,
+                    </span>
+                    Food &
+                    <br>
+                    Daily Essentials
+                    <!-- <br> -->
+                    To Every Corner.
+                </h1>
+
+                <p class="text-gray-600 text-lg leading-7 mt-5 max-w-xl">
+                    Gramexa is committed to helping people in villages and remote
+                    areas access medicines, nutritious food, and everyday essentials
+                    through fast, reliable, and doorstep delivery services.
+                </p>
+            </div>
+            <!-- CTA -->
+            <div class="flex items-center gap-4 pt-2">
+                <p class="text-gray-600 text-lg">
+                     Don’t have an account?
+                </p>
+                <a routerLink="/register" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full shadow-xl transition-all duration-300 hover:scale-105 font-semibold">
+                    Register
+                </a>
+            </div>
+            <!-- Bottom Image -->
+            <div class="rounded-[35px] overflow-hidden shadow-2xl relative group">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+                    class="w-full h-[210px] object-cover group-hover:scale-105 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                    <div>
+                        <h3 class="text-white text-3xl font-bold mb-3">
+                            Reaching Every Community
+                        </h3>
+
+                        <p class="text-gray-200 max-w-md">
+                            Making healthcare and essential deliveries accessible
+                            even in underserved and remote regions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- RIGHT IMAGE + LOGIN -->
+        <div class="relative h-[520px]">
+            <!-- Main Image -->
+            <div class="rounded-[40px] overflow-hidden shadow-2xl h-full ">
+                <img src="https://images.unsplash.com/photo-1584515933487-779824d29309" class="w-full h-full object-cover">
+            </div>
+            <!-- LOGIN CARD -->
+            <div
+                class="absolute top-[50%] -translate-y-1/2 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-xl rounded-[35px] p-8 w-[70%] max-w-md shadow-2xl border border-white/40 animate-[fadeIn_0.8s_ease]">
+                <!-- Form -->
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <!-- Username -->
+                    <div class="mb-4">
+                        <label class="block mb-2 font-semibold text-gray-700">
+                            Email / Mobile Number
+                        </label>
+                        <input type="text" formControlName="username" placeholder="Enter email or mobile"
+                            class="w-full rounded-xl border border-gray-300 p-2 px-4 outline-none focus:ring-4 focus:ring-green-100 focus:border-green-600 transition-all duration-300">
+                    </div>
+                    <!-- Pasword -->
+                    <div class="mb-4">
+                        <label class="block mb-2 font-semibold text-gray-700">
+                            Password
+                        </label>
+                        <input type="password" formControlName="password" placeholder="Enter password"
+                            class="w-full rounded-xl border border-gray-300 p-2 px-4 outline-none focus:ring-4 focus:ring-green-100 focus:border-green-600 transition-all duration-300">
+                    </div>
+                    <!-- Remember -->
+                    <!-- <div class="flex items-center justify-between mb-2 text-sm">
+                        <label class="flex items-center gap-2 text-gray-600">
+                            <input type="checkbox" class="accent-green-600 w-4 h-4">
+                            Remember me
+                        </label>
+                        <a class="text-green-700 hover:underline cursor-pointer">
+                            Forgot Password?
+                        </a>
+                    </div> -->
+                    <!-- Button -->
+                    <button type="submit"
+                        class="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-2xl text-lg font-semibold shadow-xl hover:scale-[1.02] active:scale-95 transition-all duration-300">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

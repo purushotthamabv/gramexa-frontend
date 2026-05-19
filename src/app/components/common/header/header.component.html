@@ -1,0 +1,102 @@
+<!-- HEADER -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+
+    <!-- TOP HEADER -->
+    <div class="max-w-7xl w-full mx-auto px-6 py-3 flex items-center justify-between gap-6">
+
+        <!-- LOGO -->
+        <div class="flex items-center gap-2 min-w-fit">
+            <div
+                class="w-11 h-11 rounded-xl bg-green-600 flex items-center justify-center text-white text-xl font-bold">
+                G
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-extrabold text-green-700">
+                    Gramexa
+                </h2>
+
+                <p class="text-xs text-gray-500">
+                    Essentials & Needs
+                </p>
+            </div>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="flex-1 max-w-2xl relative">
+
+            <input
+                type="text"
+                placeholder="Search medicines, groceries, essentials"
+                class="w-full bg-gray-100 border border-gray-200 rounded-full py-2 pl-4 pr-14 outline-none focus:ring-4 focus:ring-green-100 focus:border-green-500 transition-all duration-300">
+
+            <button
+                class="absolute right-2 top-1/2 -translate-y-1/2 bg-green-600 hover:bg-green-700 text-white w-8 h-8 rounded-full transition">
+                🔍
+            </button>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="flex items-center gap-6">
+
+            <!-- Wishlist -->
+            <button class="relative text-2xl hover:scale-110 transition">
+                ❤️
+
+                <span
+                    class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">
+                    2
+                </span>
+            </button>
+
+            <!-- Cart -->
+            <button class="relative text-2xl hover:scale-110 transition">
+                🛒
+
+                <span
+                    class="absolute -top-2 -right-2 bg-green-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">
+                    3
+                </span>
+            </button>
+
+            <!-- Account -->
+            <a
+                routerLink="/login"
+                class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full font-semibold transition-all duration-300">
+                Login
+            </a>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <div class="border-t border-gray-100">
+
+        <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
+            <nav class="flex items-center gap-8 text-sm font-semibold text-gray-700">
+
+                <a routerLink="/" class="hover:text-green-600 transition">
+                    Home
+                </a>
+
+                <a routerLink="/products" class="hover:text-green-600 transition">
+                    Products
+                </a>
+
+                <a routerLink="/services" class="hover:text-green-600 transition">
+                    Services
+                </a>
+
+                <a routerLink="/contact" class="hover:text-green-600 transition">
+                    Contact
+                </a>
+
+            </nav>
+
+            <div class="text-sm font-medium text-green-700">
+                🚚 Delivering To Remote Areas
+            </div>
+
+        </div>
+    </div>
+</header>

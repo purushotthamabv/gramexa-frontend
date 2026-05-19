@@ -1,0 +1,71 @@
+<!-- HERO BANNER -->
+<section class="bg-[#eaf7ec] overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-2 items-center gap-10">
+
+        <!-- LEFT -->
+        <div>
+
+            <p class="uppercase tracking-[4px] text-green-700 text-sm font-semibold mb-4">
+                Trusted Rural Delivery Platform
+            </p>
+
+            <h1 class="text-5xl font-extrabold leading-tight text-gray-800">
+
+                Medicines,
+                Nutritious Food
+                <span class="text-green-600">
+                    &
+                </span>
+                Daily Essentials
+                Delivered With Care.
+
+            </h1>
+
+            <p class="text-lg text-gray-600 leading-7 mt-6 max-w-xl">
+                Gramexa connects villages and remote communities
+                with healthcare products, groceries, and essential
+                supplies through fast and reliable delivery services.
+            </p>
+
+            <div class="flex gap-4 mt-8">
+
+                <button
+                    class="bg-green-600 hover:bg-green-700 text-white px-7 py-4 rounded-full font-semibold shadow-xl hover:scale-105 transition-all duration-300">
+
+                    Shop Now
+
+                </button>
+
+                <button
+                    class="border border-green-600 text-green-700 px-7 py-4 rounded-full font-semibold hover:bg-green-50 transition">
+
+                    Explore Services
+
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="relative flex justify-center">
+
+            <div class="absolute w-[420px] h-[420px] bg-green-200 rounded-full blur-3xl opacity-40">
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e"
+                class="relative z-10 w-[500px] object-contain drop-shadow-2xl">
+        </div>
+    </div>
+</section>
+
+<app-products
+  [title]="'Editor Picks'"
+  [subTitle]="'Fresh healthcare essentials and nutritious products'"
+  [products]="editorProducts">
+</app-products>
+
+<app-products
+  [title]="'Healthcare Products'"
+  [subTitle]="'Daily wellness and healthcare essentials'"
+  [products]="healthProducts">
+</app-products>
