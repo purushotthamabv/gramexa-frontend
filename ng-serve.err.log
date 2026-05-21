@@ -1,0 +1,85 @@
+- Building...
+
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+(node:8056) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+- Changes detected. Rebuilding...
+
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+ERROR ReferenceError: localStorage is not defined
+    at _HeaderComponent.getStoredUser (D:\gramexa\gramexa-frontend\src\app\components\common\header\header.component.ts:86:18)
+    at _HeaderComponent.refreshHeaderState (D:\gramexa\gramexa-frontend\src\app\components\common\header\header.component.ts:72:22)
+    at _HeaderComponent.ngOnInit (D:\gramexa\gramexa-frontend\src\app\components\common\header\header.component.ts:39:10)
+    at callHookInternal (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:5136:14)
+    at callHook (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:5163:13)
+    at callHooks (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:5118:17)
+    at executeInitAndCheckHooks (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:5068:9)
+    at refreshView (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:12806:21)
+    at detectChangesInView$1 (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:13015:9)
+    at detectChangesInViewIfAttached (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:12978:5)
+ERROR ReferenceError: localStorage is not defined
+    at _HeaderComponent.getStoredUser (D:\gramexa\gramexa-frontend\src\app\components\common\header\header.component.ts:86:18)
+    at _HeaderComponent.refreshHeaderState (D:\gramexa\gramexa-frontend\src\app\components\common\header\header.component.ts:72:22)
+    at _HeaderComponent.ngOnInit (D:\gramexa\gramexa-frontend\src\app\components\common\header\header.component.ts:39:10)
+    at callHookInternal (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:5136:14)
+    at callHook (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:5163:13)
+    at callHooks (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:5118:17)
+    at executeInitAndCheckHooks (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:5068:9)
+    at refreshView (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:12806:21)
+    at detectChangesInView$1 (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:13015:9)
+    at detectChangesInViewIfAttached (D:\gramexa\gramexa-frontend\node_modules\@angular\core\fesm2022\core.mjs:12978:5)
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.

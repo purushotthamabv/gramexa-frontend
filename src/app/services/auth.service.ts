@@ -26,11 +26,14 @@ export class AuthService {
 
   register(
     request: RegisterRequest
-  ): Observable<any> {
+  ): Observable<string> {
 
     return this.http.post(
       `${this.apiUrl}/auth/register`,
-      request
+      request,
+      {
+        responseType: 'text'
+      }
     );
   }
 

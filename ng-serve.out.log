@@ -1,0 +1,388 @@
+
+> gramexa-frontend@0.0.0 start
+> ng serve --host 127.0.0.1 --port 4200
+
+Browser bundles        
+Initial chunk files     | Names               |  Raw size
+polyfills.js            | polyfills           |  88.09 kB | 
+main.js                 | main                |  40.79 kB | 
+styles.css              | styles              |  19.53 kB | 
+
+                        | Initial total       | 148.40 kB
+
+
+Server bundles         
+Initial chunk files     | Names               |  Raw size
+chunk-DOC7C5A5.mjs      | -                   |   1.71 MB | 
+polyfills.server.mjs    | polyfills.server    | 559.49 kB | 
+main.server.mjs         | main.server         | 440.18 kB | 
+chunk-VPSODEBW.mjs      | -                   |   2.51 kB | 
+render-utils.server.mjs | render-utils.server | 423 bytes | 
+
+Lazy chunk files        | Names               |  Raw size
+chunk-P3UOPGAK.mjs      | xhr2                |  39.09 kB | 
+
+Application bundle generation complete. [9.375 seconds]
+
+Watch mode enabled. Watching for file changes...
+  ➜  Local:   http://127.0.0.1:4200/
+  ➜  press h + enter to show help
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  41.42 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 440.75 kB | 
+
+Application bundle generation complete. [1.827 seconds]
+
+Page reload sent to client(s).
+Browser bundles        
+Initial chunk files     | Names               |  Raw size
+main.js                 | main                |  42.93 kB | 
+
+
+Server bundles         
+Initial chunk files     | Names               |  Raw size
+chunk-SWSPIOBY.mjs      | -                   |   1.71 MB | 
+main.server.mjs         | main.server         | 442.26 kB | 
+render-utils.server.mjs | render-utils.server | 423 bytes | 
+
+Application bundle generation complete. [0.892 seconds]
+
+Page reload sent to client(s).
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  43.76 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 443.03 kB | 
+
+Application bundle generation complete. [1.381 seconds]
+
+Page reload sent to client(s).
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  48.85 kB | 
+styles.css          | styles      |  20.00 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 447.91 kB | 
+
+Application bundle generation complete. [0.917 seconds]
+
+Page reload sent to client(s).
+Browser bundles        
+Initial chunk files     | Names               |  Raw size
+main.js                 | main                |  50.55 kB | 
+styles.css              | styles              |  20.19 kB | 
+
+
+Server bundles         
+Initial chunk files     | Names               |  Raw size
+chunk-UQNK6VMC.mjs      | -                   |   1.71 MB | 
+main.server.mjs         | main.server         | 449.36 kB | 
+render-utils.server.mjs | render-utils.server | 423 bytes | 
+
+Application bundle generation complete. [1.311 seconds]
+
+Page reload sent to client(s).
+HttpErrorResponse {
+  headers: _HttpHeaders {
+    normalizedNames: Map(0) {},
+    lazyUpdate: null,
+    lazyInit: [Function (anonymous)]
+  },
+  status: 403,
+  statusText: 'Forbidden',
+  url: 'http://localhost:8080/api/products/all-products',
+  ok: false,
+  name: 'HttpErrorResponse',
+  message: 'Http failure response for http://localhost:8080/api/products/all-products: 403 Forbidden',
+  error: null
+}
+11:18:08 am [vite] ✨ new dependencies optimized: rxjs
+11:18:08 am [vite] ✨ optimized dependencies changed. reloading
+HttpErrorResponse {
+  headers: _HttpHeaders {
+    normalizedNames: Map(0) {},
+    lazyUpdate: null,
+    lazyInit: [Function (anonymous)]
+  },
+  status: 403,
+  statusText: 'Forbidden',
+  url: 'http://localhost:8080/api/products/all-products',
+  ok: false,
+  name: 'HttpErrorResponse',
+  message: 'Http failure response for http://localhost:8080/api/products/all-products: 403 Forbidden',
+  error: null
+}
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  52.08 kB | 
+styles.css          | styles      |  20.29 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 450.82 kB | 
+
+Application bundle generation complete. [1.065 seconds]
+
+Page reload sent to client(s).
+HttpErrorResponse {
+  headers: _HttpHeaders {
+    normalizedNames: Map(0) {},
+    lazyUpdate: null,
+    lazyInit: [Function (anonymous)]
+  },
+  status: 403,
+  statusText: 'Forbidden',
+  url: 'http://localhost:8080/api/products/all-products',
+  ok: false,
+  name: 'HttpErrorResponse',
+  message: 'Http failure response for http://localhost:8080/api/products/all-products: 403 Forbidden',
+  error: null
+}
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  53.13 kB | 
+styles.css          | styles      |  20.39 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 451.87 kB | 
+
+Application bundle generation complete. [1.275 seconds]
+
+Page reload sent to client(s).
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  53.47 kB | 
+styles.css          | styles      |  21.76 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 452.21 kB | 
+
+Application bundle generation complete. [1.135 seconds]
+
+Page reload sent to client(s).
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  54.07 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 452.81 kB | 
+
+Application bundle generation complete. [1.449 seconds]
+
+Page reload sent to client(s).
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  54.32 kB | 
+styles.css          | styles      |  22.95 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 453.03 kB | 
+
+Application bundle generation complete. [1.285 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 54.59 kB | 
+
+Application bundle generation complete. [0.802 seconds]
+
+Page reload sent to client(s).
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  54.62 kB | 
+styles.css          | styles      |  24.11 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 453.33 kB | 
+
+Application bundle generation complete. [1.261 seconds]
+
+Page reload sent to client(s).
+Browser bundles        
+Initial chunk files     | Names               |  Raw size
+main.js                 | main                |  55.06 kB | 
+
+
+Server bundles         
+Initial chunk files     | Names               |  Raw size
+chunk-MIZAEVU4.mjs      | -                   |   1.71 MB | 
+main.server.mjs         | main.server         | 453.70 kB | 
+render-utils.server.mjs | render-utils.server | 423 bytes | 
+
+Application bundle generation complete. [1.417 seconds]
+
+Page reload sent to client(s).
+Browser bundles        
+Initial chunk files     | Names               |  Raw size
+main.js                 | main                |  58.27 kB | 
+styles.css              | styles              |  24.59 kB | 
+
+
+Server bundles         
+Initial chunk files     | Names               |  Raw size
+chunk-4ISCWSIN.mjs      | -                   |   1.71 MB | 
+main.server.mjs         | main.server         | 456.63 kB | 
+render-utils.server.mjs | render-utils.server | 423 bytes | 
+
+Application bundle generation complete. [1.429 seconds]
+
+Page reload sent to client(s).
+Browser bundles        
+Initial chunk files     | Names               |  Raw size
+main.js                 | main                |  61.66 kB | 
+
+
+Server bundles         
+Initial chunk files     | Names               |  Raw size
+chunk-NXEXUPEZ.mjs      | -                   |   1.71 MB | 
+main.server.mjs         | main.server         | 460.27 kB | 
+render-utils.server.mjs | render-utils.server | 423 bytes | 
+
+Application bundle generation complete. [2.245 seconds]
+
+Page reload sent to client(s).
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  63.17 kB | 
+styles.css          | styles      |  25.80 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 461.79 kB | 
+
+Application bundle generation complete. [4.037 seconds]
+
+Page reload sent to client(s).
+11:37:08 am [vite] ✨ new dependencies optimized: @angular/core/rxjs-interop
+11:37:08 am [vite] ✨ optimized dependencies changed. reloading
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  63.61 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 462.22 kB | 
+
+Application bundle generation complete. [1.466 seconds]
+
+Page reload sent to client(s).
+Browser bundles        
+Initial chunk files     | Names               |  Raw size
+main.js                 | main                |  77.97 kB | 
+styles.css              | styles              |  26.41 kB | 
+
+
+Server bundles         
+Initial chunk files     | Names               |  Raw size
+chunk-Q2LAKVW6.mjs      | -                   |   1.71 MB | 
+main.server.mjs         | main.server         | 475.49 kB | 
+render-utils.server.mjs | render-utils.server | 423 bytes | 
+
+Application bundle generation complete. [1.505 seconds]
+
+Page reload sent to client(s).
+Browser bundles        
+Initial chunk files     | Names               |  Raw size
+main.js                 | main                |  83.34 kB | 
+styles.css              | styles              |  26.52 kB | 
+
+
+Server bundles         
+Initial chunk files     | Names               |  Raw size
+chunk-WO4NXBUW.mjs      | -                   |   1.71 MB | 
+main.server.mjs         | main.server         | 480.61 kB | 
+render-utils.server.mjs | render-utils.server | 423 bytes | 
+
+Application bundle generation complete. [1.698 seconds]
+
+Page reload sent to client(s).
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  86.77 kB | 
+styles.css          | styles      |  26.58 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 483.63 kB | 
+
+Application bundle generation complete. [1.111 seconds]
+
+Page reload sent to client(s).
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  87.00 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 483.79 kB | 
+
+Application bundle generation complete. [1.307 seconds]
+
+Page reload sent to client(s).
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  91.20 kB | 
+styles.css          | styles      |  26.68 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+main.server.mjs     | main.server | 487.89 kB | 
+
+Application bundle generation complete. [1.484 seconds]
+
+Page reload sent to client(s).
+Browser bundles        
+Initial chunk files     | Names               |  Raw size
+main.js                 | main                |  91.23 kB | 
+
+
+Server bundles         
+Initial chunk files     | Names               |  Raw size
+chunk-QMGFJ75R.mjs      | -                   |   1.71 MB | 
+main.server.mjs         | main.server         | 487.91 kB | 
+render-utils.server.mjs | render-utils.server | 423 bytes | 
+
+Application bundle generation complete. [1.627 seconds]
+
+Page reload sent to client(s).
+Browser bundles        
+Initial chunk files     | Names               |  Raw size
+main.js                 | main                |  91.20 kB | 
+
+
+Server bundles         
+Initial chunk files     | Names               |  Raw size
+chunk-WO4NXBUW.mjs      | -                   |   1.71 MB | 
+main.server.mjs         | main.server         | 487.89 kB | 
+render-utils.server.mjs | render-utils.server | 423 bytes | 
+
+Application bundle generation complete. [66.820 seconds]
+
+Page reload sent to client(s).

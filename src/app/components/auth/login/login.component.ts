@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -22,7 +22,12 @@ export class LoginComponent {
   isLoading = false;
   errorMessage = '';
 
-  constructor(private fb: FormBuilder , private router: Router , private authService: AuthService,) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthService
+  ) {
     this.createForm();
   }
 
@@ -90,9 +95,11 @@ export class LoginComponent {
 
           // SUCCESS NAVIGATION
 
-          this.router.navigate([
-            '/dashboard'
-          ]);
+          const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+
+          this.router.navigateByUrl(
+            returnUrl || '/home'
+          );
         },
 
         error: (error) => {

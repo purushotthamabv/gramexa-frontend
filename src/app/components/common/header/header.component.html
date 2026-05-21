@@ -1,102 +1,133 @@
-<!-- HEADER -->
-<header class="bg-white shadow-sm sticky top-0 z-50">
-
-    <!-- TOP HEADER -->
-    <div class="max-w-7xl w-full mx-auto px-6 py-3 flex items-center justify-between gap-6">
-
-        <!-- LOGO -->
-        <div class="flex items-center gap-2 min-w-fit">
-            <div
-                class="w-11 h-11 rounded-xl bg-green-600 flex items-center justify-center text-white text-xl font-bold">
+<header class="header-shell sticky top-0 z-50 border-b border-green-100/80 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center gap-5 px-5 py-3">
+        <a routerLink="/home" class="flex min-w-fit items-center gap-3">
+            <div class="brand-mark">
                 G
             </div>
 
             <div>
-                <h2 class="text-2xl font-extrabold text-green-700">
+                <h2 class="text-xl font-extrabold leading-5 text-green-700">
                     Gramexa
                 </h2>
-
-                <p class="text-xs text-gray-500">
+                <p class="text-xs font-medium text-gray-500">
                     Essentials & Needs
                 </p>
             </div>
+        </a>
+
+        <div class="hidden flex-1 md:block">
+            <div class="search-wrap">
+                <span class="search-icon">
+                    &#128269;
+                </span>
+                <input
+                    type="text"
+                    placeholder="Search medicines, groceries, essentials"
+                    class="h-11 w-full rounded-full border border-gray-200 bg-gray-50 pl-11 pr-4 text-sm outline-none transition focus:border-green-500 focus:bg-white focus:ring-4 focus:ring-green-100">
+            </div>
         </div>
 
-        <!-- SEARCH -->
-        <div class="flex-1 max-w-2xl relative">
-
-            <input
-                type="text"
-                placeholder="Search medicines, groceries, essentials"
-                class="w-full bg-gray-100 border border-gray-200 rounded-full py-2 pl-4 pr-14 outline-none focus:ring-4 focus:ring-green-100 focus:border-green-500 transition-all duration-300">
+        <div class="ml-auto flex items-center gap-2">
+            <button
+                type="button"
+                class="header-action"
+                routerLink="/wishlist"
+                aria-label="Wishlist">
+                <span class="text-red-500">&hearts;</span>
+                <span class="hidden text-sm font-semibold text-gray-700 lg:inline">Wishlist</span>
+                <span class="count-badge bg-red-500">
+                    {{ wishlistCount$ | async }}
+                </span>
+            </button>
 
             <button
-                class="absolute right-2 top-1/2 -translate-y-1/2 bg-green-600 hover:bg-green-700 text-white w-8 h-8 rounded-full transition">
-                🔍
-            </button>
-        </div>
-
-        <!-- ACTIONS -->
-        <div class="flex items-center gap-6">
-
-            <!-- Wishlist -->
-            <button class="relative text-2xl hover:scale-110 transition">
-                ❤️
-
-                <span
-                    class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">
-                    2
+                type="button"
+                class="header-action"
+                routerLink="/cart"
+                aria-label="Cart">
+                <span>&#128722;</span>
+                <span class="hidden text-sm font-semibold text-gray-700 lg:inline">Cart</span>
+                <span class="count-badge bg-green-600">
+                    {{ cartCount$ | async }}
                 </span>
             </button>
 
-            <!-- Cart -->
-            <button class="relative text-2xl hover:scale-110 transition">
-                🛒
-
-                <span
-                    class="absolute -top-2 -right-2 bg-green-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">
-                    3
-                </span>
-            </button>
-
-            <!-- Account -->
             <a
+                *ngIf="!isLoggedIn()"
                 routerLink="/login"
-                class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full font-semibold transition-all duration-300">
+                class="rounded-full bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-green-600/20 transition hover:bg-green-700">
                 Login
             </a>
+
+            <div
+                *ngIf="isLoggedIn()"
+                class="relative"
+                (click)="$event.stopPropagation()">
+                <button
+                    type="button"
+                    (click)="toggleAccountMenu($event)"
+                    class="account-trigger">
+                    <span class="account-avatar">
+                        {{ (user?.name || 'U').charAt(0) }}
+                    </span>
+
+                    <span class="hidden text-left md:block">
+                        <span class="block max-w-[120px] truncate text-sm font-bold text-gray-800">
+                            {{ user?.name || 'User' }}
+                        </span>
+                        <span class="block text-[11px] font-semibold uppercase text-green-700">
+                            {{ user?.role || 'USER' }}
+                        </span>
+                    </span>
+
+                    <span class="text-xs text-gray-500">
+                        &#9662;
+                    </span>
+                </button>
+
+                <div
+                    *ngIf="isAccountMenuOpen"
+                    class="account-menu">
+                    <div class="border-b border-gray-100 px-4 py-3">
+                        <p class="font-bold text-gray-800">
+                            {{ user?.name || 'User' }}
+                        </p>
+                        <p class="mt-0.5 text-xs text-gray-500">
+                            {{ user?.mobileNumber || 'Logged in' }}
+                        </p>
+                    </div>
+
+                    <a routerLink="/profile" class="account-menu-item">
+                        Update Profile
+                    </a>
+
+                    <a routerLink="/change-password" class="account-menu-item">
+                        Change Password
+                    </a>
+
+                    <button
+                        type="button"
+                        (click)="logout()"
+                        class="account-menu-item w-full text-left text-red-600">
+                        Logout
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- NAVBAR -->
     <div class="border-t border-gray-100">
-
-        <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-
-            <nav class="flex items-center gap-8 text-sm font-semibold text-gray-700">
-
-                <a routerLink="/" class="hover:text-green-600 transition">
-                    Home
-                </a>
-
-                <a routerLink="/products" class="hover:text-green-600 transition">
-                    Products
-                </a>
-
-                <a routerLink="/services" class="hover:text-green-600 transition">
-                    Services
-                </a>
-
-                <a routerLink="/contact" class="hover:text-green-600 transition">
-                    Contact
-                </a>
-
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-2.5">
+            <nav class="flex items-center gap-5 text-sm font-semibold text-gray-700 md:gap-8">
+                <a routerLink="/home" class="nav-link">Home</a>
+                <a routerLink="/products" class="nav-link">Products</a>
+                <a routerLink="/services" class="nav-link">Services</a>
+                <a routerLink="/contact" class="nav-link">Contact</a>
             </nav>
 
-            <div class="text-sm font-medium text-green-700">
-                🚚 Delivering To Remote Areas
+            <div class="hidden rounded-full bg-green-50 px-4 py-1.5 text-xs font-semibold text-green-700 md:block">
+                Delivering to remote areas
             </div>
-
         </div>
     </div>
 </header>

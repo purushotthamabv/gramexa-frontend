@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../model/product.interface';
 import { ProductsComponent } from '../products/products.component';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -9,45 +10,27 @@ import { ProductsComponent } from '../products/products.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  editorProducts: Product[] = [
+export class HomeComponent implements OnInit {
+  editorProducts: Product[] = [];
+  healthProducts: Product[] = [];
 
-    {
-      id: 1,
-      name: 'Organic Apple Juice',
-      category: 'ORGANIC',
-      description: 'Healthy organic juice.',
-      image: 'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2',
-      price: 120,
-      oldPrice: 180,
-      badge: '25% OFF',
-      stock: 23
-    },
+  constructor(private productService: ProductService) {
 
-    {
-      id: 2,
-      name: 'Vitamin C Tablets',
-      category: 'MEDICINE',
-      description: 'Daily immunity support.',
-      image: 'https://images.unsplash.com/photo-1622484212850-eb596d769edc',
-      price: 249,
-      oldPrice: 399,
-      badge: 'HOT',
-      stock: 12
-    }
-  ];
+  }
 
-  healthProducts: Product[] = [
-    {
-      id: 3,
-      name: 'Organic Vegetables',
-      category: 'HEALTHY FOOD',
-      description: 'Fresh vegetables.',
-      image: 'https://images.unsplash.com/photo-1542838132-92c53300491e',
-      price: 499,
-      oldPrice: 699,
-      badge: 'NEW',
-      stock: 18
-    }
-  ];
+  ngOnInit() {
+    this.productService.getProducts().subscribe({
+      next: (products) => {
+        this.editorProducts = products.slice(0, 4);
+        this.healthProducts = products
+          .filter((product) =>
+            ['MEDICINE', 'HEALTHCARE', 'NUTRITION'].includes(product.category)
+          )
+          .slice(0, 4);
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
 }

@@ -75,6 +75,15 @@
                         </label>
                         <input type="text" formControlName="name" placeholder="Enter full name"
                             class="w-full rounded-xl border border-gray-300 p-2 px-4 outline-none focus:ring-4 focus:ring-green-100 focus:border-green-600 transition-all duration-300">
+
+                        @if(
+                        registerForm.get('name')?.touched &&
+                        registerForm.get('name')?.invalid
+                        ){
+                        <p class="text-red-500 text-sm mt-1">
+                            Full name is required
+                        </p>
+                        }
                     </div>
                     <!-- EMAIL -->
                     <div class="mb-4">
@@ -83,6 +92,21 @@
                         </label>
                         <input type="email" formControlName="email" placeholder="Enter email"
                             class="w-full rounded-xl border border-gray-300 p-2 px-4 outline-none focus:ring-4 focus:ring-green-100 focus:border-green-600 transition-all duration-300">
+
+                        @if(
+                        registerForm.get('email')?.touched &&
+                        registerForm.get('email')?.invalid
+                        ){
+                        <p class="text-red-500 text-sm mt-1">
+                            @if(registerForm.get('email')?.errors?.['required']){
+                            Email is required
+                            }
+
+                            @if(registerForm.get('email')?.errors?.['email']){
+                            Enter a valid email address
+                            }
+                        </p>
+                        }
                     </div>
                     <!-- MOBILE -->
                     <div class="mb-4">
@@ -102,7 +126,7 @@
                             }
 
                             @if(registerForm.get('mobileNumber')?.errors?.['pattern']){
-                            Enter valid 10 digit mobile number
+                            Enter valid 10 digit mobile number starting with 6-9
                             }
                         </p>
                         }
@@ -115,11 +139,40 @@
                         </label>
                         <input type="password" formControlName="password" placeholder="Enter password"
                             class="w-full rounded-xl border border-gray-300 p-2 px-4 outline-none focus:ring-4 focus:ring-green-100 focus:border-green-600 transition-all duration-300">
+
+                        @if(
+                        registerForm.get('password')?.touched &&
+                        registerForm.get('password')?.invalid
+                        ){
+                        <p class="text-red-500 text-sm mt-1">
+                            @if(registerForm.get('password')?.errors?.['required']){
+                            Password is required
+                            }
+
+                            @if(registerForm.get('password')?.errors?.['minlength']){
+                            Password must be at least 6 characters
+                            }
+                        </p>
+                        }
                     </div>
+
+                    @if(errorMessage){
+                    <p class="mb-4 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
+                        {{ errorMessage }}
+                    </p>
+                    }
+
+                    @if(successMessage){
+                    <p class="mb-4 rounded-xl bg-green-50 px-4 py-3 text-sm font-medium text-green-700">
+                        {{ successMessage }}
+                    </p>
+                    }
+
                     <!-- BUTTON -->
                     <button type="submit"
-                        class="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-2xl text-lg font-semibold shadow-xl hover:scale-[1.02] active:scale-95 transition-all duration-300">
-                        Register
+                        [disabled]="isLoading"
+                        class="w-full bg-green-600 hover:bg-green-700 disabled:bg-green-400 disabled:cursor-not-allowed text-white py-4 rounded-2xl text-lg font-semibold shadow-xl hover:scale-[1.02] active:scale-95 transition-all duration-300">
+                        {{ isLoading ? 'Registering...' : 'Register' }}
                     </button>
                 </form>
             </div>

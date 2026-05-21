@@ -7,7 +7,8 @@ import {
 } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -18,8 +19,15 @@ import { RouterLink } from '@angular/router';
 export class RegisterComponent {
 
   registerForm!: FormGroup;
+  isLoading = false;
+  errorMessage = '';
+  successMessage = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
     this.createForm();
   }
 
@@ -44,7 +52,7 @@ export class RegisterComponent {
         '',
         [
           Validators.required,
-          Validators.pattern('^[0-9]{10}$')
+          Validators.pattern('^[6-9]\\d{9}$')
         ]
       ],
 
@@ -65,10 +73,29 @@ export class RegisterComponent {
       return;
     }
 
-    console.log(this.registerForm.value);
+    this.isLoading = true;
+    this.errorMessage = '';
+    this.successMessage = '';
 
-    /**
-     * REGISTER API CALL
-     */
+    this.authService
+      .register(this.registerForm.value)
+      .subscribe({
+        next: (response) => {
+          this.isLoading = false;
+          this.successMessage = response;
+          this.registerForm.reset();
+
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 1200);
+        },
+        error: (error) => {
+          this.isLoading = false;
+          this.errorMessage =
+            error?.error?.message ||
+            error?.error ||
+            'Registration failed';
+        }
+      });
   }
 }
