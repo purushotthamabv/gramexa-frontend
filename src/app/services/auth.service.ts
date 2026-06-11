@@ -8,6 +8,25 @@ import { LoginRequest, LoginResponse } from '../model/login';
 import { RegisterRequest } from '../model/register-request';
 import { CookieService } from 'ngx-cookie-service';
 
+export interface UserProfile {
+  id: number;
+  name: string;
+  email: string;
+  mobileNumber: string;
+  role: string;
+}
+
+export interface UpdateProfileRequest {
+  name: string;
+  email: string;
+  mobileNumber: string;
+}
+
+export interface ChangePasswordRequest {
+  currentPassword: string;
+  newPassword: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -46,6 +65,33 @@ export class AuthService {
     return this.http.post<LoginResponse>(
       `${this.apiUrl}/auth/login`,
       request
+    );
+  }
+
+  getProfile(): Observable<UserProfile> {
+    return this.http.get<UserProfile>(
+      `${this.apiUrl}/auth/profile`
+    );
+  }
+
+  updateProfile(
+    request: UpdateProfileRequest
+  ): Observable<UserProfile> {
+    return this.http.put<UserProfile>(
+      `${this.apiUrl}/auth/profile`,
+      request
+    );
+  }
+
+  changePassword(
+    request: ChangePasswordRequest
+  ): Observable<string> {
+    return this.http.put(
+      `${this.apiUrl}/auth/change-password`,
+      request,
+      {
+        responseType: 'text'
+      }
     );
   }
 

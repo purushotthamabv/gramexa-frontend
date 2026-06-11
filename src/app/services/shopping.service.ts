@@ -19,6 +19,35 @@ export interface WishlistItemResponse {
   product: BackendProduct;
 }
 
+export interface CheckoutRequest {
+  deliveryName: string;
+  deliveryMobile: string;
+  deliveryAddress: string;
+  deliveryPincode: string;
+}
+
+export interface OrderItemResponse {
+  id: number;
+  productId: number;
+  productName: string;
+  unitPrice: number;
+  quantity: number;
+  lineTotal: number;
+}
+
+export interface OrderResponse {
+  id: number;
+  totalAmount: number;
+  status: string;
+  paymentMode: string;
+  deliveryName: string;
+  deliveryMobile: string;
+  deliveryAddress: string;
+  deliveryPincode: string;
+  createdAt: string;
+  items: OrderItemResponse[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -95,6 +124,18 @@ export class ShoppingService {
       .pipe(
         tap(() => this.loadCounts())
       );
+  }
+
+  checkout(request: CheckoutRequest): Observable<OrderResponse> {
+    return this.http
+      .post<OrderResponse>(`${this.apiUrl}/orders/checkout`, request)
+      .pipe(
+        tap(() => this.loadCounts())
+      );
+  }
+
+  getOrders(): Observable<OrderResponse[]> {
+    return this.http.get<OrderResponse[]>(`${this.apiUrl}/orders`);
   }
 
   resetCounts(): void {

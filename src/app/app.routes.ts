@@ -31,8 +31,7 @@ export const routes: Routes = [
   },
   {
     path: 'products',
-    component: ProductsComponent,
-    canActivate: [authGuard]
+    component: ProductsComponent
   },
   {
     path: 'cart',
@@ -56,13 +55,11 @@ export const routes: Routes = [
   },
   {
     path: 'services',
-    component: ServicesComponent,
-    canActivate: [authGuard]
+    component: ServicesComponent
   },
   {
     path: 'contact',
-    component: ContactComponent,
-    canActivate: [authGuard]
+    component: ContactComponent
   },
   {
     path: '**',

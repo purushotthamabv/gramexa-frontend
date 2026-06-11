@@ -101,19 +101,7 @@ export class ProductsComponent implements OnInit {
   }
 
   openProducts() {
-    if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/products']);
-      return;
-    }
-
-    this.router.navigate(
-      ['/login'],
-      {
-        queryParams: {
-          returnUrl: '/products'
-        }
-      }
-    );
+    this.router.navigate(['/products']);
   }
 
   addToCart(

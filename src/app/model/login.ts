@@ -6,6 +6,6 @@ export interface LoginRequest {
 export interface LoginResponse {
   token: string;
   name: string;
-  mobileNumber: string;
+  mobile: string;
   role: string;
 }
