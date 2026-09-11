@@ -1,0 +1,15 @@
+.restaurant-card { overflow: hidden; border-radius: 1.25rem; background: white; box-shadow: 0 12px 30px rgba(22, 101, 52, .1); transition: transform 250ms ease, box-shadow 250ms ease; }
+.restaurant-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(22, 101, 52, .2); }
+
+button.bg-emerald-500 img {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+  vertical-align: middle;
+  transition: transform 220ms ease;
+}
+
+button.bg-emerald-500:hover img {
+  transform: translateX(6px) rotate(-8deg);
+}

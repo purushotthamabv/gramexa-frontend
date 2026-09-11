@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Component, DestroyRef, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { isPlatformBrowser } from '@angular/common';
@@ -16,7 +17,7 @@ interface HeaderUser {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
   wishlistCount$ = this.shoppingService.wishlistCount$;
   user: HeaderUser | null = null;
   isAccountMenuOpen = false;
+  searchTerm = '';
 
   constructor(
     private authService: AuthService,
@@ -68,6 +70,17 @@ export class HeaderComponent implements OnInit {
   toggleAccountMenu(event: Event) {
     event.stopPropagation();
     this.isAccountMenuOpen = !this.isAccountMenuOpen;
+  }
+
+  isAdmin() {
+    return ['ADMIN', 'SUPER_ADMIN'].includes(String(this.user?.role || '').toUpperCase());
+  }
+
+  search() {
+    this.router.navigate([], {
+      queryParams: { search: this.searchTerm.trim() || null },
+      queryParamsHandling: 'merge'
+    });
   }
 
   private refreshHeaderState() {

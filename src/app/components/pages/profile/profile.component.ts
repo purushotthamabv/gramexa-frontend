@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
   isSaving = false;
   errorMessage = '';
   successMessage = '';
+  isRequestingAdmin = false;
 
   constructor(
     private fb: FormBuilder,
@@ -110,6 +111,15 @@ export class ProfileComponent implements OnInit {
           'Unable to update profile';
         this.isSaving = false;
       }
+    });
+  }
+
+  requestAdminAccess() {
+    this.isRequestingAdmin = true;
+    this.errorMessage = '';
+    this.authService.requestAdminAccess().subscribe({
+      next: (message) => { this.successMessage = message; this.isRequestingAdmin = false; this.loadProfile(); },
+      error: (error) => { this.errorMessage = error?.error?.message || 'Unable to submit admin request'; this.isRequestingAdmin = false; }
     });
   }
 }

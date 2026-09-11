@@ -1,0 +1,183 @@
+.admin-shell {
+    display: flex;
+    min-height: calc(100vh - 100px);
+    background: #f0fdf4;
+    color: #172018
+}
+
+.admin-shell aside {
+    width: 240px;
+    background: #14532d;
+    color: #fff;
+    padding: 28px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.admin-shell aside h1 {
+    font-size: 1.3rem;
+    margin-bottom: 24px
+}
+
+.admin-shell aside a {
+    padding: 11px 12px;
+    border-radius: 10px
+}
+
+.admin-shell aside a:hover {
+    background: #166534
+}
+
+.admin-shell main {
+    flex: 1;
+    padding: 32px;
+    max-width: 1200px
+}
+
+.title,
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center
+}
+
+.stats {
+    display: flex;
+    gap: 18px
+}
+
+.stats div,
+.cards article,
+form,
+table {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 24px #14532d12
+}
+
+.stats b,
+.stats span {
+    display: block
+}
+
+.stats b {
+    font-size: 2rem;
+    color: #166534
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px
+}
+
+.cards img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px
+}
+
+.cards a,
+.title a,
+button {
+    font-size: 10px;
+    background: #166534;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 12px;
+    letter-spacing: 1px;
+    margin:0 5px;
+}
+
+form {
+    display: grid;
+    gap: 14px;
+    max-width: 550px
+}
+
+input,
+select {
+    padding: 11px;
+    border: 1px solid #d1fae5;
+    border-radius: 9px;
+    width: 100%
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 0 8px
+}
+
+.notice {
+    color: #166534
+}
+
+.error {
+    color: #dc2626
+}
+
+@media(max-width:700px) {
+    .admin-shell aside {
+        width: 170px
+    }
+
+    .admin-shell main {
+        padding: 18px
+    }
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    background: rgba(15, 23, 42, .5);
+    padding: 20px
+}
+
+.user-modal {
+    width: min(100%, 520px);
+    display: grid;
+    gap: 14px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 26px;
+    box-shadow: 0 25px 70px rgba(15, 23, 42, .25)
+}
+
+.user-modal label {
+    display: grid;
+    gap: 6px;
+    font-weight: 600;
+    color: #374151
+}
+
+.user-modal .check {
+    display: flex;
+    align-items: center
+}
+
+.user-modal .check input {
+    width: auto
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px
+}
+
+.modal-actions .cancel {
+    background: #e5e7eb;
+    color: #374151
+}

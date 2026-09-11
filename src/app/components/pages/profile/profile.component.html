@@ -35,6 +35,13 @@
                 <input type="text" formControlName="role" class="w-full rounded-xl border border-gray-200 bg-gray-50 p-3 px-4 text-gray-500">
             </div>
 
+            <div *ngIf="profileForm.get('role')?.value === 'USER'" class="rounded-xl bg-emerald-50 p-4">
+                <p class="text-sm text-emerald-800">Want to manage restaurants and menus?</p>
+                <button type="button" (click)="requestAdminAccess()" [disabled]="isRequestingAdmin" class="mt-3 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60">
+                    {{ isRequestingAdmin ? 'Submitting...' : 'Request Admin Access' }}
+                </button>
+            </div>
+
             <p *ngIf="errorMessage" class="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
                 {{ errorMessage }}
             </p>

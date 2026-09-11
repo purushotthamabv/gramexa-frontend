@@ -1,0 +1,74 @@
+<section class="menu-shell">
+  <div class="menu-hero">
+    <div class="menu-hero-copy">
+      <p class="menu-eyebrow">Live restaurant menu</p>
+      <h1>{{ restaurantName }}</h1>
+      <p class="menu-intro">
+        Browse the full vegetarian menu powered by the database, filtered by
+        category and ready for cart or wishlist actions.
+      </p>
+      <button type="button" class="menu-home-btn" (click)="openHome()">
+        Back to home
+      </button>
+    </div>
+
+    <div class="menu-hero-panel">
+      <span class="menu-hero-label">Currency</span>
+      <strong>{{ currency }}</strong>
+      <span class="menu-hero-label mt-3">Total dishes</span>
+      <strong>{{ products.length }}</strong>
+    </div>
+  </div>
+
+  <div class="menu-filters" *ngIf="categories.length">
+    <button
+      type="button"
+      *ngFor="let category of categories"
+      class="filter-chip"
+      [class.active]="selectedCategory === category"
+      (click)="selectCategory(category)">
+      {{ category }}
+    </button>
+  </div>
+
+  <p *ngIf="actionMessage" class="menu-state success">{{ actionMessage }}</p>
+  <p *ngIf="actionError" class="menu-state error">{{ actionError }}</p>
+
+  <p *ngIf="isLoading" class="menu-state">Loading menu...</p>
+  <p *ngIf="errorMessage" class="menu-state error">{{ errorMessage }}</p>
+
+  <div *ngIf="!isLoading && !errorMessage" class="menu-grid">
+    <article *ngFor="let product of filteredProducts; trackBy: trackByProductId" class="menu-card">
+      <div class="menu-image-wrap">
+        <img [src]="product.image" [alt]="product.name" loading="lazy" decoding="async">
+        <button type="button" class="wishlist-btn image-wishlist" (click)="toggleWishlist(product, $event)" [class.active]="isWishlisted(product.id)" [attr.aria-label]="isWishlisted(product.id) ? 'Remove from wishlist' : 'Add to wishlist'">♥</button>
+        <span class="menu-tag" [class.out]="product.badge === 'SOLD OUT'">
+          {{ product.badge }}
+        </span>
+      </div>
+
+      <div class="menu-card-body">
+        <div class="menu-meta">
+          <span>{{ product.category }}</span>
+          <span *ngIf="product.discountPercentage" class="offer-badge">{{ product.discountPercentage }}% off</span>
+          <span *ngIf="product.stock" class="availability">Available</span>
+        </div>
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <div class="menu-price-row">
+          <strong>₹{{ product.price }}</strong>
+          <span *ngIf="product.oldPrice !== product.price">₹{{ product.oldPrice }}</span>
+          <button type="button" class="cart-btn card-cart" (click)="addToCart(product, $event)" [disabled]="isAddingToCart(product.id)">{{ isAddingToCart(product.id) ? 'Adding...' : 'Add to cart' }}</button>
+        </div>
+        <div class="menu-actions">
+          <button type="button" class="wishlist-btn" (click)="toggleWishlist(product, $event)" [class.active]="isWishlisted(product.id)">
+            {{ isWishlisted(product.id) ? '♥ Saved' : '♡ Wishlist' }}
+          </button>
+          <button type="button" class="cart-btn" (click)="addToCart(product, $event)" [disabled]="isAddingToCart(product.id)">
+            {{ isAddingToCart(product.id) ? 'Adding...' : 'Add to cart' }}
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

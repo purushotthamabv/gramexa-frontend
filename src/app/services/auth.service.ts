@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { LoginRequest, LoginResponse } from '../model/login';
 import { RegisterRequest } from '../model/register-request';
@@ -27,12 +27,19 @@ export interface ChangePasswordRequest {
   newPassword: string;
 }
 
+export interface ForgotPasswordRequest {
+  username: string;
+  newPassword: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
   private apiUrl = environment.apiUrl;
+  private authenticatedSubject = new BehaviorSubject<boolean>(false);
+  authenticated$ = this.authenticatedSubject.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -95,6 +102,18 @@ export class AuthService {
     );
   }
 
+  forgotPassword(
+    request: ForgotPasswordRequest
+  ): Observable<string> {
+    return this.http.post(
+      `${this.apiUrl}/auth/forgot-password`,
+      request,
+      {
+        responseType: 'text'
+      }
+    );
+  }
+
   // SAVE TOKEN
 
   saveToken(token: string) {
@@ -108,6 +127,7 @@ export class AuthService {
       false,
       'Lax'
     );
+    this.authenticatedSubject.next(true);
   }
 
   // GET TOKEN
@@ -129,6 +149,16 @@ export class AuthService {
     );
 
     this.cookieService.deleteAll();
+    localStorage.removeItem('user');
+    this.authenticatedSubject.next(false);
+  }
+
+  requestAdminAccess(): Observable<string> {
+    return this.http.post(`${this.apiUrl}/auth/request-admin`, {}, { responseType: 'text' });
+  }
+
+  handleInvalidSession() {
+    this.logout();
   }
 
   // CHECK LOGIN

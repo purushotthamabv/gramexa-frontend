@@ -8,4 +8,6 @@ export interface Product {
     oldPrice: number;
     badge?: string;
     stock?: number;
+    offerPrice?: number;
+    discountPercentage?: number;
 }

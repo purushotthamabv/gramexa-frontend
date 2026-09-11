@@ -19,8 +19,15 @@ import { AuthService } from '../../../services/auth.service';
 export class LoginComponent {
 
   loginForm!: FormGroup;
+  forgotPasswordForm!: FormGroup;
   isLoading = false;
+  isResetLoading = false;
   errorMessage = '';
+  resetErrorMessage = '';
+  resetSuccessMessage = '';
+  isForgotPasswordMode = false;
+  showPassword = false;
+  showResetPassword = false;
 
   constructor(
     private fb: FormBuilder,
@@ -42,6 +49,24 @@ export class LoginComponent {
         Validators.required
       ]
     });
+
+    this.forgotPasswordForm = this.fb.group({
+      username: [
+        '',
+        Validators.required
+      ],
+      newPassword: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6)
+        ]
+      ],
+      confirmPassword: [
+        '',
+        Validators.required
+      ]
+    });
   }
 
   onSubmit() {
@@ -51,7 +76,61 @@ export class LoginComponent {
       return;
     }
     this.userLogin();
-    console.log(this.loginForm.value);
+  }
+
+  toggleForgotPasswordMode() {
+    this.isForgotPasswordMode = !this.isForgotPasswordMode;
+    this.errorMessage = '';
+    this.resetErrorMessage = '';
+
+    if (this.isForgotPasswordMode) {
+      this.resetSuccessMessage = '';
+      this.forgotPasswordForm.patchValue({
+        username: this.loginForm.value.username || ''
+      });
+    } else {
+      this.forgotPasswordForm.reset();
+    }
+  }
+
+  onForgotPasswordSubmit() {
+    if (this.forgotPasswordForm.invalid) {
+      this.forgotPasswordForm.markAllAsTouched();
+      return;
+    }
+
+    if (this.forgotPasswordForm.value.newPassword !== this.forgotPasswordForm.value.confirmPassword) {
+      this.resetErrorMessage = 'New password and confirm password do not match';
+      return;
+    }
+
+    this.isResetLoading = true;
+    this.resetErrorMessage = '';
+    this.resetSuccessMessage = '';
+
+    this.authService
+      .forgotPassword({
+        username: this.forgotPasswordForm.value.username,
+        newPassword: this.forgotPasswordForm.value.newPassword
+      })
+      .subscribe({
+        next: (response) => {
+          this.isResetLoading = false;
+          this.resetSuccessMessage = response;
+          this.loginForm.patchValue({
+            username: this.forgotPasswordForm.value.username,
+            password: ''
+          });
+          this.forgotPasswordForm.reset();
+          this.isForgotPasswordMode = false;
+        },
+        error: (error) => {
+          this.isResetLoading = false;
+          this.resetErrorMessage =
+            error?.error?.message ||
+            'Unable to reset password';
+        }
+      });
   }
   
       /**
@@ -78,8 +157,6 @@ export class LoginComponent {
 
           this.isLoading = false;
 
-          console.log(response);
-
           // SAVE TOKEN IN COOKIE
 
           this.authService.saveToken(
@@ -105,8 +182,6 @@ export class LoginComponent {
         error: (error) => {
 
           this.isLoading = false;
-
-          console.log(error);
 
           this.errorMessage =
             error?.error?.message ||

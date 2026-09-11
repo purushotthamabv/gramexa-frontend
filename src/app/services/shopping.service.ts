@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, forkJoin, Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { BackendProduct } from '../model/backend-product.interface';
+import { AuthService } from './auth.service';
 
 interface CountResponse {
   count: number;
@@ -61,8 +62,14 @@ export class ShoppingService {
   cartCount$ = this.cartCountSubject.asObservable();
   wishlistCount$ = this.wishlistCountSubject.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, authService: AuthService) {
+    authService.authenticated$.subscribe((authenticated) => {
+      if (!authenticated) this.resetCounts();
+    });
+  }
 
+  resetForLogout(): void {
+    this.resetCounts();
   }
 
   loadCounts(): void {

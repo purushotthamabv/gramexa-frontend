@@ -21,6 +21,7 @@ export class RegisterComponent {
   registerForm!: FormGroup;
   isLoading = false;
   errorMessage = '';
+  showPassword = false;
   successMessage = '';
 
   constructor(

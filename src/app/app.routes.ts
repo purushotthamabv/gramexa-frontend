@@ -10,8 +10,17 @@ import { CartComponent } from './components/pages/cart/cart.component';
 import { WishlistComponent } from './components/pages/wishlist/wishlist.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { ChangePasswordComponent } from './components/pages/change-password/change-password.component';
+import { RestaurantMenuComponent } from './components/pages/restaurant-menu/restaurant-menu.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { adminGuard, superAdminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
+  { path: 'admin', component: AdminComponent, canActivate: [adminGuard] },
+  { path: 'admin/restaurants', component: AdminComponent, canActivate: [adminGuard], data: { section: 'restaurants' } },
+  { path: 'admin/restaurants/add', component: AdminComponent, canActivate: [adminGuard], data: { section: 'add' } },
+  { path: 'admin/restaurants/:restaurantId/items', component: AdminComponent, canActivate: [adminGuard], data: { section: 'items' } },
+  { path: 'admin/users', component: AdminComponent, canActivate: [adminGuard], data: { section: 'users' } },
+  { path: 'admin/pending-admins', component: AdminComponent, canActivate: [superAdminGuard], data: { section: 'pending-admins' } },
   {
     path: '',
     redirectTo: 'home',
@@ -31,7 +40,16 @@ export const routes: Routes = [
   },
   {
     path: 'products',
-    component: ProductsComponent
+    redirectTo: 'menu',
+    pathMatch: 'full'
+  },
+  {
+    path: 'menu',
+    component: RestaurantMenuComponent
+  },
+  {
+    path: 'menu/:restaurantId',
+    component: RestaurantMenuComponent
   },
   {
     path: 'cart',

@@ -1,0 +1,122 @@
+<div class="admin-shell">
+    <aside>
+        <h1>Gramexa Admin</h1><a routerLink="/admin">Dashboard</a><a routerLink="/admin/restaurants">Restaurants</a><a
+            routerLink="/admin/restaurants/add">Add Restaurant</a><a routerLink="/admin/users">Users</a><a
+            routerLink="/admin/pending-admins">Pending Admins</a><a routerLink="/home">Back to store</a>
+    </aside>
+    <main>
+        <p *ngIf="message" class="notice">{{message}}</p>
+        <p *ngIf="error" class="error">{{error}}</p>
+        <section *ngIf="section==='dashboard'">
+            <h2>Dashboard</h2>
+            <div class="stats">
+                <div><b>{{restaurants.length}}</b><span>Restaurants</span></div>
+                <div><b>{{users.length}}</b><span>Users</span></div>
+                <div><b>{{pending.length}}</b><span>Pending admins</span></div>
+            </div>
+        </section>
+        <section *ngIf="section==='restaurants'">
+            <div class="title">
+                <h2>Restaurants</h2><a routerLink="/admin/restaurants/add">Add restaurant</a>
+            </div>
+            <div class="cards">
+                <article *ngFor="let r of restaurants"><img [src]="r.imageUrl||'assets/placeholder.png'">
+                    <h3>{{r.restaurantName}}</h3><small>ID: {{r.restaurantId}}</small>
+                    <p>{{r.products.length}} menu items · {{r.currency}}</p><a
+                        [routerLink]="['/admin/restaurants',r.restaurantId,'items']">Manage items</a>
+                </article>
+            </div>
+        </section>
+        <section *ngIf="section==='add'">
+            <h2>Add restaurant</h2>
+            <form (ngSubmit)="create()">
+                <input [(ngModel)]="form.restaurantName" name="name"
+                    placeholder="Restaurant name" required>
+                <input [(ngModel)]="form.currency" name="currency"
+                    placeholder="Currency">
+                <input [(ngModel)]="form.imageUrl" name="image"
+                    placeholder="Image URL">
+                <button>Create restaurant</button>
+            </form>
+        </section>
+        <section *ngIf="section==='items'">
+            <h2>Manage menu: {{selectedId}}</h2>
+            <div class="row">
+                <select [(ngModel)]="selectedProduct">
+                    <option [ngValue]="undefined">Select product</option>
+                    <option *ngFor="let p of products" [ngValue]="p.id">{{p.productName}}</option>
+                </select>
+                <button (click)="addItem()">Add item</button></div>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let i of items">
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.category}}</td>
+                    <td><button (click)="remove(i)">Remove</button></td>
+                </tr>
+            </table>
+        </section>
+        <section *ngIf="section==='users'">
+            <h2>Search Users:</h2>
+            <input [(ngModel)]="search" placeholder="Search users">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Approved</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let u of filteredUsers">
+                    <td>{{u.name}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.role}}</td>
+                    <td>{{u.approved}}</td>
+                    <td><button (click)="editUser(u)">Edit</button><button (click)="deleteUser(u)">Delete</button></td>
+                </tr>
+            </table>
+        </section>
+        <section *ngIf="section==='pending-admins'">
+            <h2>Pending admins</h2>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let u of pending">
+                    <td>{{u.name}}</td>
+                    <td>{{u.email}}</td>
+                    <td><button (click)="approve(u)">Approve</button></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <div *ngIf="editingUser" class="modal-backdrop" (click)="closeEditor()">
+        <form class="user-modal" (ngSubmit)="saveUser()" (click)="$event.stopPropagation()">
+            <h2>Edit user</h2>
+            <label>Name<input [(ngModel)]="editForm.name" name="editName" required></label>
+            <label>Email<input [(ngModel)]="editForm.email" name="editEmail" type="email" required></label><label>Mobile<input [(ngModel)]="editForm.mobileNumber" name="editMobile" required></label>
+            <label>Role
+                <select [(ngModel)]="editForm.role" name="editRole">
+                    <option value="USER">USER</option>
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="SUPER_ADMIN">SUPER_ADMIN</option>
+                </select>
+            </label>
+            <label class="check">
+                <input [(ngModel)]="editForm.approved" name="editApproved" type="checkbox">Approved
+            </label>
+            <div class="modal-actions">
+                <button type="button" class="cancel" (click)="closeEditor()">Cancel</button>
+                <button type="submit">Save changes</button>
+            </div>
+        </form>
+    </div>
+</div>
