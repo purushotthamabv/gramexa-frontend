@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://your-backend-host.example.com/api'
+  apiUrl: 'https://gramexa-backend-1.onrender.com/api'
 };
